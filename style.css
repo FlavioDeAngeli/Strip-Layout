@@ -1,0 +1,268 @@
+/* standard browser settings */
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+/*---------------------------*/
+
+body {
+	height: 100%;
+	background-color: lightgrey;
+	display: flex;
+}
+
+nav {
+	height: 10vh;
+	width: 100%;
+	background-color: lightyellow;
+	position: fixed;
+	top: 0;
+	font-family: 'Poppins', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#logo {
+	height: 10vh;
+	width: 10vh;
+	min-width: 70px;
+	margin-left: 10px;
+	background-image: url(assets/logo.png);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+
+ul {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	list-style: none;
+}
+
+li {
+	padding: 30px;
+}
+
+li a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	letter-spacing: 3px;
+}
+
+.push {
+	margin-left: auto;
+}
+
+.burger {
+	display: none;
+}
+
+.burger div {
+	width: 40px;
+	height: 5px;
+	background-color: black;
+	margin: 7px;
+	transition: all 0.3s ease; /*set transition duration*/
+	border-radius: 2.5px;
+}
+
+#main-container {
+	height: 100vh;
+	width: 100%;
+	display: grid;
+	grid-template-areas: "gap     gap"
+						 "block-1 strip-1"
+						 "block-1 strip-2"
+						 "block-2 strip-3"
+						 "block-2 strip-4"
+						 "footer  footer"
+}
+
+#nav-gap {
+	grid-area: gap;
+	height: 10vh;
+}
+.block {
+	width: 20vw;
+	height: 42.5vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.strip {
+	width: 80vw;
+	height: 21.25vh;
+	background-color: lightblue;
+}
+
+.over-strip {
+	width: 100vw;
+	height: 21.25vh;
+	background-color: lightgrey;
+
+	transform: translateX(0);
+	transition-duration: 0.5s;
+	transition-timing-function: 1;
+}
+
+#block-1 {
+	grid-area: block-1;
+	background-color: white;
+}
+
+#block-2 {
+	grid-area: block-2;
+}
+
+#strip-1 {
+	grid-area: strip-1;
+	background-color: #5F9AFF;
+}
+
+#strip-2 {
+	grid-area: strip-2;
+	background-color: #8AB5FE;
+}
+
+#strip-3 {
+	grid-area: strip-3;
+	background-color: #5F9AFF;
+}
+
+#strip-4 {
+	grid-area: strip-4;
+	background-color: #8AB5FE;
+}
+
+.over-strip:hover {
+	background-color: lightgrey;
+	transform: translateX(80%);
+	transition-delay: 0.5s;
+	transition-duration: 1s;
+	transition-timing-function: 1;
+}
+
+#over-strip-1 {
+	background-color: black;
+	opacity: 0.3;
+}
+
+#over-strip-2 {
+	background-color: black;
+	opacity: 0.3;
+}
+
+#over-strip-3 {
+	background-color: black;
+	opacity: 0.3;
+}
+
+#over-strip-4 {
+	background-color: black;
+	opacity: 0.3;
+}
+
+footer {
+	grid-area: footer;
+	display: flex;
+	height: 5vh;
+	min-height: 20px;
+	width: 100%;
+	background-color: lightgreen;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 1024px) { /*medium screen size*/
+
+	#logo {
+		width: 15vw;
+	}
+
+	li {
+		font-size: 1.2em;
+	}
+}
+
+@media screen and (max-width: 768px) { /*mobile screen size*/
+
+		#logo {
+		width: 20vw;
+	}
+
+	.nav-links {
+		position: absolute;
+		top: 10vh;
+		right: 0px;
+		height: 85vh;
+		width: 60vw;
+		background-color: lightyellow;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transform: translateX(100%); /*move div right (to 100% of width)*/
+		transition: transform 0.5s ease-in; /*transition timing (slow-in)*/
+	}
+
+	.nav-links li {
+		opacity: 0; /*links are hidden at first*/
+	}
+
+	.push {
+		margin-left: 0;
+}
+
+	.burger {
+		padding-right: 5vw;
+		display: block;
+		cursor: pointer;
+	}
+
+	.nav-active {
+	transform: translateX(0%); /*move div left (from +100%(X))*/
+}
+
+.block {
+	width: 40vw;
+	}
+
+.strip {
+	width: 60vw;
+}
+
+.over-strip:hover {
+	transform: translateX(60%);
+}
+/* CSS Animation */
+
+@keyframes navLinkFade {
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+/* Burger icon animation */
+
+.toggle .line1 {
+	transform: rotate(-45deg) translate(-6.5px, 10px);
+}
+
+.toggle .line2 {
+	opacity: 0;
+}
+
+.toggle .line3 {
+	transform: rotate(45deg) translate(-6.5px, -10px);
+}
+}
